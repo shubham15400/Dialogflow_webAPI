@@ -15,7 +15,7 @@ def webhook():
 
     # Basic example response based on intent
     if intent_name == 'Favorite Dish':
-        response_text = "One of my favorite dishes is Butter Chicken! Rich, creamy, and full of spices."
+        response_text = "One of my favorite dishes is Butter Paneer! Rich, creamy, and full of spices."
     else:
         response_text = "I'm not sure about that. Can you ask me something else?"
 
