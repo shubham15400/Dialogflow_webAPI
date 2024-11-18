@@ -10,9 +10,9 @@ recipes_suggestion = {
 }
 
 recipes = {
-    "Butter Paneer": "You will need Paneer, Butter or cream, onion and tomato. For spices you will need chilli powder, turmeric powder, cumin-corriender powder, bay leaf, pepper and cumin"
-    ,"Daal": "You'll need lentil of your choice, oil(any), onion and tomato. For spices you will need cumin, chilli powder, turmeric powder, cumin-corriander powder, garam masala, asofoetida, whole dried red chilli"
-    ,"Chana Masala": "You'll need Chole Chana lentil, oil, onion, tomato. For the spices you will need cumin, chilli powder, turmeric powder, cumin-corriander powder, bay leaf, garam masala."
+    "Butter Paneer": "Paneer, Butter or cream, onion and tomato. For spices you will need chilli powder, turmeric powder, cumin-corriender powder, bay leaf, pepper and cumin"
+    ,"Daal": "lentil of your choice, oil(any), onion and tomato. For spices you will need cumin, chilli powder, turmeric powder, cumin-corriander powder, garam masala, asofoetida, whole dried red chilli"
+    ,"Chana Masala": "Chole Chana lentil, oil, onion, tomato. For the spices you will need cumin, chilli powder, turmeric powder, cumin-corriander powder, bay leaf, garam masala."
 }
 
 @app.route('/')
@@ -25,13 +25,21 @@ def webhook():
     # Parse request from Dialogflow
     req = request.get_json(silent=True, force=True)
     intent_name = req.get('queryResult').get('intent').get('displayName')
+    parameters = req.get('queryResult').get('parameters')
 
     # Basic example response based on intent
     if intent_name == 'Favorite Dish':
-        response_text = "One of my favorite dishes is Butter Paneer! Rich, creamy, and full of spices."
+        dish_name = random.choice(list(recipes_suggestion.keys()))
+        response_text = f"One of my favorite dishes is {dish_name}, {recipes_suggestion[dish_name]}"
     elif intent_name == 'Recipe_Suggestion':
         dish_name = random.choice(list(recipes_suggestion.keys()))
-        response_text = f"Here is a recipe for {dish_name}: {recipes_suggestion[dish_name]}"
+        response_text = f"Here is a recipe for {dish_name}, {recipes_suggestion[dish_name]}"
+    elif intent_name == 'Preparation':
+        dish = parameters.get('dish')
+        if dish in recipes:
+            response_text = f"To prepare {dish}, you will need: {recipes[dish]}"
+        else:
+            response_text = f"Sorry, I don't have a recipe for that dish yet. I could help you with {recipes.keys()}"
     else:
         response_text = "I'm not sure about that. Can you ask me something else?"
 
