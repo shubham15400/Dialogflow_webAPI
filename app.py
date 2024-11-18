@@ -3,10 +3,16 @@ import random
 
 app = Flask(__name__)
 
-recipes = {
+recipes_suggestion = {
     "Butter Paneer": "A rich and creamy curry made with tomatoes, butter, and chicken.",
     "Daal": "A healthy soup with lentils, turmeric, and ginger for a nutritious meal.",
     "Chana Masala": "A quick stir-fry with chickpeas, and garam masala."
+}
+
+recipes = {
+    "Butter Paneer": "You will need Paneer, Butter or cream, onion and tomato. For spices you will need chilli powder, turmeric powder, cumin-corriender powder, bay leaf, pepper and cumin"
+    ,"Daal": "You'll need lentil of your choice, oil(any), onion and tomato. For spices you will need cumin, chilli powder, turmeric powder, cumin-corriander powder, garam masala, asofoetida, whole dried red chilli"
+    ,"Chana Masala": "You'll need Chole Chana lentil, oil, onion, tomato. For the spices you will need cumin, chilli powder, turmeric powder, cumin-corriander powder, bay leaf, garam masala."
 }
 
 @app.route('/')
@@ -24,8 +30,8 @@ def webhook():
     if intent_name == 'Favorite Dish':
         response_text = "One of my favorite dishes is Butter Paneer! Rich, creamy, and full of spices."
     elif intent_name == 'Recipe_Suggestion':
-        dish_name = random.choice(list(recipes.keys()))
-        response_text = f"Here is a recipe for {dish_name}: {recipes[dish_name]}"
+        dish_name = random.choice(list(recipes_suggestion.keys()))
+        response_text = f"Here is a recipe for {dish_name}: {recipes_suggestion[dish_name]}"
     else:
         response_text = "I'm not sure about that. Can you ask me something else?"
 
