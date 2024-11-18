@@ -2,6 +2,12 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+recipes = {
+    "Butter Paneer": "A rich and creamy curry made with tomatoes, butter, and chicken.",
+    "Daal": "A healthy soup with lentils, turmeric, and ginger for a nutritious meal.",
+    "Chana Masal": "A quick stir-fry with chickpeas, and garam masala."
+}
+
 @app.route('/')
 def home():
     return jsonify({"student_number": "200603533"})
@@ -16,6 +22,12 @@ def webhook():
     # Basic example response based on intent
     if intent_name == 'Favorite Dish':
         response_text = "One of my favorite dishes is Butter Paneer! Rich, creamy, and full of spices."
+    elif intent_name == 'Recipe_Suggestion':
+        dish_name = req.get('queryResult').get('parameters').get('dish_name')
+        if dish_name and dish_name in recipes:
+            response_text = f"Here is a recipe for {dish_name}: {recipes[dish_name]}"
+        else:
+            response_text = "I'm not sure about that. Can you ask me something else?"
     else:
         response_text = "I'm not sure about that. Can you ask me something else?"
 
