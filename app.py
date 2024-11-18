@@ -5,7 +5,7 @@ app = Flask(__name__)
 recipes = {
     "Butter Paneer": "A rich and creamy curry made with tomatoes, butter, and chicken.",
     "Daal": "A healthy soup with lentils, turmeric, and ginger for a nutritious meal.",
-    "Chana Masal": "A quick stir-fry with chickpeas, and garam masala."
+    "Chana Masala": "A quick stir-fry with chickpeas, and garam masala."
 }
 
 @app.route('/')
