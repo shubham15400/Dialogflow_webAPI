@@ -27,7 +27,7 @@ def webhook():
     intent_name = req.get('queryResult').get('intent').get('displayName')
     parameters = req.get('queryResult').get('parameters')
 
-    # Basic example response based on intent
+    # response based on intent
     if intent_name == 'Favorite Dish':
         dish_name = random.choice(list(recipes_suggestion.keys()))
         response_text = f"One of my favorite dishes is {dish_name}, {recipes_suggestion[dish_name]}"
