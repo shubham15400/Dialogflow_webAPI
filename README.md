@@ -58,9 +58,6 @@ To get started with the project, follow these steps:
 - [Dialogflow](https://cloud.google.com/dialogflow) - NLP platform for building chatbots and conversational interfaces
 - [Render](https://render.com/) - Cloud platform for deploying web applications and services
 
-## License
-This project is licensed under the [MIT License](LICENSE).
-
 ---
 
 Feel free to edit any section or let me know if you want any other additions!
