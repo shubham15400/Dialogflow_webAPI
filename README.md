@@ -1,2 +1,2 @@
-<h2>Flask Appliction integration with DialogFlow Chatbot</h2><br>
-In this project Flask application is integrated via Web service API to Dialogflow via Web service API hosted by Render. 
+<h2>Flask Application integration with Dialogflow Chatbot</h2><br>
+In this project, the Flask application is integrated into Dialogflow via Web service API hosted on Render.
