@@ -33,7 +33,7 @@ def webhook():
         response_text = f"One of my favorite dishes is {dish_name}, {recipes_suggestion[dish_name]}"
     elif intent_name == 'Recipe_Suggestion':
         dish_name = random.choice(list(recipes_suggestion.keys()))
-        response_text = f"Here is a recipe for {dish_name}, {recipes_suggestion[dish_name]}"
+        response_text = f"Here is a recipe for {dish_name}, {recipes[dish_name]}"
     elif intent_name == 'Preparation':
         dish = parameters.get('dish')
         if dish in recipes:
