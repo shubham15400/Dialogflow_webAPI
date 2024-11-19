@@ -32,15 +32,8 @@ def webhook():
         dish_name = random.choice(list(recipes_suggestion.keys()))
         response_text = f"One of my favorite dishes is {dish_name}, {recipes_suggestion[dish_name]}"
     elif intent_name == 'Recipe_Suggestion':
-        if parameters:
-            dish = parameters.get('dish')
-            if dish in recipes:
-                response_text = f"To prepare {dish}, you will need: {recipes[dish]}"
-            else:
-                response_text = f"Sorry, I don't have a recipe for that dish yet. I could help you with {recipes.keys()}"
-        else:
-            dish_name = random.choice(list(recipes_suggestion.keys()))
-            response_text = f"Here is a recipe for {dish_name}, {recipes[dish_name]}"
+        dish_name = random.choice(list(recipes_suggestion.keys()))
+        response_text = f"Here is a recipe for {dish_name}, {recipes[dish_name]}"
     elif intent_name == 'Preparation':
         dish = parameters.get('dish')
         if dish in recipes:
