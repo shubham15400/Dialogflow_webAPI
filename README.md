@@ -9,7 +9,6 @@ This project integrates a Flask application with Dialogflow using Render as a we
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Contribution](#contribution)
-- [License](#license)
 
 ## Installation
 To get started with the project, follow these steps:
