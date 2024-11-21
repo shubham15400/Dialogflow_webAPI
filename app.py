@@ -39,7 +39,7 @@ def webhook():
         if dish in recipes:
             response_text = f"To prepare {dish}, you will need: {recipes[dish]}"
         else:
-            response_text = f"Sorry, I don't have a recipe for that dish yet. I could help you with {recipes.keys()}"
+            response_text = f"Sorry, I don't have a recipe for that dish yet. I could help you with {list(recipes.keys())}"
     else:
         response_text = "I'm not sure about that. Can you ask me something else?"
 
