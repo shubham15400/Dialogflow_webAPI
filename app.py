@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 
 recipes_suggestion = {
-    "Butter Paneer": "A rich and creamy curry made with tomatoes, butter, and chicken.",
+    "Butter Paneer": "A rich and creamy curry made with tomatoes, butter, and Paneer.",
     "Daal": "A healthy soup with lentils, turmeric, and ginger for a nutritious meal.",
     "Chana Masala": "A quick stir-fry with chickpeas, and garam masala."
 }
